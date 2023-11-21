@@ -2,7 +2,7 @@
 
 ***Linux-based Router***
 
-This setup uses Ubuntu 16.04-LTS, Xenial Xerus as the Linux distribution for the EC2-based VPN gateway and router. Strongswan provides the IPSec termination for the AWS Site-to-Site VPN connection. And FRRouting provides the dynamic routing capabilities for BGP.
+This setup uses Centos7 as the Linux distribution for the EC2-based VPN gateway and router. Strongswan provides the IPSec termination for the AWS Site-to-Site VPN connection. And FRRouting provides the dynamic routing capabilities for BGP.
 
 ## Installation Steps 
 
