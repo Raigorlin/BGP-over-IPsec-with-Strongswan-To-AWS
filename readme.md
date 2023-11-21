@@ -256,6 +256,9 @@ sudo yum install ./$FRRVER*
 
 #### Install require packages
 
+
+Libyang Repo
+
 ```shell
 sudo yum install git autoconf automake libtool make \
   readline-devel texinfo net-snmp-devel groff pkgconfig \
@@ -422,6 +425,55 @@ Codes: K - kernel route, C - connected, S - static, R - RIP,
 B>* 172.31.0.0/16 [20/100] via 169.254.14.229, vti2, 00:23:10
   *                        via 169.254.12.37, vti1, 00:23:10
 ```
+
+### Troubleshooting
+
+If you have the output of a show ip bgp , show ip bgp neighbors , show ip bgp summary , or show tech-support command from your Cisco device, you can use [Cisco CLI Analyzer](https://cway.cisco.com/cli/) to display potential issues and fixes. To use Cisco CLI Analyzer, you must be a registered Cisco user.
+
+[Referencing from: Troubleshoot Common BGP Issues](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/22166-bgp-trouble-main.html)
+
+#### Main Troubleshoot Flowchart
+
+![Alt text](/screenshots/22166-bgp-trouble-main-00.png)
+
+#### Troubleshoot BGP Neighbor Establishment
+
+![Alt text](/screenshots/22166-bgp-trouble-main-01.png)
+
+
+This is a sample log message that must be checked when the neighbor does not come up:
+```
+BGP_SESSION-5-ADJCHANGE: neighbor[ip address] IPv4 Unicast topology base removed
+  from session Peer closed the session
+BGP_SESSION-5-ADJCHANGE: neighbor[ip address] IPv4 Unicast topology base removed
+  from session Unknown path error
+```
+
+This is an example of ping with packet size and enable does not contain fragment bit in the IP header:
+```
+Router#ping 10.10.10.2 size 1400 df-bit
+
+Type escape sequence to abort.
+Sending 5, 1400-byte ICMP Echos to 10.10.10.2, timeout is 2 seconds:
+Packet sent with the DF bit set
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/37/84 ms
+```
+#### Troubleshoot Routes Missing from the Routing Table
+![Alt text](/screenshots/22166-bgp-trouble-main-02.png)
+
+> `[Note]` If the BGP routes are not in the routing table, verify if the network statement under the BGP configuration is correct.
+
+> `[Note]` In the debug ip bgp x.x.x.x updates command, x.x.x.x is the neighbor to which the route must be advertised.
+
+#### Troubleshoot Multihoming Inbound
+![Alt text](/screenshots/22166-bgp-trouble-main-03.png)
+
+#### Troubleshoot BGP Route Advertisement
+![Alt text](/screenshots/22166-bgp-trouble-main-04.png)
+
+#### Troubleshoot Multihoming Outbound
+![Alt text](/screenshots/22166-bgp-trouble-main-05.png)
 
 ### Firewall
 ---
