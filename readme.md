@@ -28,8 +28,15 @@ This setup uses Centos7 as the Linux distribution for the EC2-based VPN gateway 
 3. [BGP Setup](#bgp-routing)
     - [Config BGP Routing](#config-bgp-routing)
     - [Validate BGP Status](#check-bgp-interface)
-4. [Firewall Config](#firewall)
-5. [Config Sysctl.conf](#sysctlconf-for-kernel)
+4. [Troubleshooting BGP](#troubleshooting)
+    - [Main Troubleshoot Flowchart](#main-troubleshoot-flowchart)
+    - [Troubleshoot BGP Neighbor Establishment](#troubleshoot-bgp-neighbor-establishment)
+    - [Troubleshoot Routes Missing from the Routing Table](#troubleshoot-routes-missing-from-the-routing-table)
+    - [Troubleshoot Multihoming Inbound](#troubleshoot-multihoming-inbound)
+    - [Troubleshoot BGP Route Advertisement](#troubleshoot-bgp-route-advertisement)
+    - [Troubleshoot Multihoming Outbound](#troubleshoot-multihoming-outbound)
+5. [Firewall Config](#firewall)
+6. [Config Sysctl.conf](#sysctlconf-for-kernel)
 
 
 ## Strongswan Setup
